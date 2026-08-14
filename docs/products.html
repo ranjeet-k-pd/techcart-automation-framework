@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TechCart - Products</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 32px; }
+        .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+        .title { font-size: 22px; margin: 0; }
+        .cart { position: relative; font-size: 20px; }
+        .shopping_cart_badge {
+            display: none; position: absolute; top: -8px; right: -14px;
+            background: #c0392b; color: #fff; border-radius: 50%;
+            padding: 2px 7px; font-size: 12px;
+        }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .inventory_item { background: #fff; border-radius: 8px; padding: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+        .inventory_item h3 { font-size: 16px; margin: 0 0 8px; }
+        .inventory_item p { color: #555; font-size: 14px; margin: 0 0 12px; }
+        .add-to-cart { padding: 8px 14px; background: #2b7a4b; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+        .add-to-cart:hover { background: #23673f; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2 class="title">Products</h2>
+        <div class="cart">
+            🛒
+            <span class="shopping_cart_badge">0</span>
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="inventory_item">
+            <h3>Wireless Mouse</h3>
+            <p>Ergonomic, 2.4GHz wireless mouse.</p>
+            <button class="add-to-cart" data-product-id="1">Add to cart</button>
+        </div>
+        <div class="inventory_item">
+            <h3>Mechanical Keyboard</h3>
+            <p>Tactile switches, RGB backlight.</p>
+            <button class="add-to-cart" data-product-id="2">Add to cart</button>
+        </div>
+        <div class="inventory_item">
+            <h3>USB-C Hub</h3>
+            <p>7-in-1 hub with HDMI and card reader.</p>
+            <button class="add-to-cart" data-product-id="3">Add to cart</button>
+        </div>
+        <div class="inventory_item">
+            <h3>Laptop Stand</h3>
+            <p>Adjustable aluminium laptop stand.</p>
+            <button class="add-to-cart" data-product-id="4">Add to cart</button>
+        </div>
+        <div class="inventory_item">
+            <h3>Webcam 1080p</h3>
+            <p>Full HD webcam with auto-focus.</p>
+            <button class="add-to-cart" data-product-id="5">Add to cart</button>
+        </div>
+        <div class="inventory_item">
+            <h3>Noise-Cancelling Headphones</h3>
+            <p>Over-ear, 30-hour battery life.</p>
+            <button class="add-to-cart" data-product-id="6">Add to cart</button>
+        </div>
+    </div>
+
+    <script>
+        let cartCount = 0;
+        const badge = document.querySelector('.shopping_cart_badge');
+
+        document.querySelectorAll('.add-to-cart').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                cartCount++;
+                badge.textContent = String(cartCount);
+                badge.style.display = 'inline-block';
+            });
+        });
+    </script>
+</body>
+</html>
